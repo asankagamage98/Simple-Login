@@ -1,20 +1,21 @@
+// ProtectedRoute.jsx
+
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
-import Profile from './Pages/Profile';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { selectUser } from './Features/userSlice';
 
+const ProtectedRoute = ({ element }) => {
+  const user = useSelector(selectUser);
+  
+  console.log(user);
+  
+  if (!user) {
+    // Redirect to the login page if user is not authenticated
+    return <Navigate to="/login" />;
+  }
 
-export default function ProtectedRoute() {
-  return (
-   
-      <div className="container">
-          <Routes>      
-            <Route path="/" element={<Home />} />      
-            <Route path="/profile" element={<Profile />} />     
-            
+  return element;
+};
 
-          </Routes>
-      </div>
-    
-  );
-}
+export default ProtectedRoute;
