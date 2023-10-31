@@ -1,8 +1,19 @@
 .layout{
     display: flex;
-    flex: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    font-family: "Inter";
+   
+}
+
+.form-control {
+    width: 200px; /* Set your desired width */
+    height: 30px; /* Set your desired height */
+}
+
+.loginform{
+    width: 300px;
+}
+.btn{
+    width:100px;
 }
